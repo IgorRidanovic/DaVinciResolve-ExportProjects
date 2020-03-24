@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# DaVinci Resolve V16 export to DRP all projects and delete projects in current folder
+# DaVinci Resolve V16 export to DRP all projects in the current folder.
 # Copyright 2019 Igor Riđanović, www.metafide.com, www.hdhead.com
 
 from python_get_resolve import GetResolve
