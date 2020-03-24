@@ -7,14 +7,22 @@
 from python_get_resolve import GetResolve
 import os
 
-def export_drp():
+def export_drp(p):
 
 	projs = pm.GetProjectsInCurrentFolder()
-	for i in projs.values():
-		pm.ExportProject(i, os.path.join(path, i))
 
-		# Uncomment to delete projects after export		
-		#pm.DeleteProject(i)
+	for i in projs.values():
+
+		try:
+			pm.ExportProject(i, os.path.join(p, i))
+		except TypeError:
+			print 'This script requires DaVinci Resolve 16.'
+			return None
+
+		print 'Exported', i
+
+	return True
+
 
 if __name__ == '__main__':
 
@@ -24,3 +32,6 @@ if __name__ == '__main__':
 
 	# Set the path to the DRP export directory
 	path = ''
+
+	if export_drp(path):
+		print 'Export completed.'
